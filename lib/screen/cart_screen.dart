@@ -21,9 +21,7 @@ class _CartScreenState extends State<CartScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("GOOD FOOD IS ALWAYS COOKING",
-                  style: TextStyle(
-                      fontSize: size.height * 0.025,
-                      fontWeight: FontWeight.w700)),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
               SizedBox(
                 height: size.height * 0.03,
               ),
@@ -39,7 +37,7 @@ class _CartScreenState extends State<CartScreen> {
                 height: size.height * 0.05,
               ),
               SizedBox(
-                width: size.width * 0.5,
+                width: size.width * 0.7,
                 height: 50,
                 child: RaisedButton(
                   elevation: 10,
