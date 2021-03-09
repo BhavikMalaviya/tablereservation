@@ -70,15 +70,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SingleChildScrollView(
-            child: Expanded(
-              child: Container(
-                height: size.height * 0.786,
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return buildListTile(size, index);
-                  },
-                  itemCount: 5,
-                ),
+            child: Container(
+              height: size.height * 0.786,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return buildListTile(size, index);
+                },
+                itemCount: 5,
               ),
             ),
           )
@@ -160,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
         MaterialPageRoute(builder: (context) => RestaurantMenu()),
       ),
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10),
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,
