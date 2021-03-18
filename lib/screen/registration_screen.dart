@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mediminder/auth/authmethod.dart';
@@ -176,9 +175,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         SizedBox(
                           width: size.width * 0.5,
                           height: 50,
-                          child: RaisedButton(
-                            elevation: 10,
-                            color: Colors.red,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 10,
+                              primary: Colors.red,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50)),
+                            ),
                             onPressed: () {
                               authentication();
                             },
@@ -187,8 +190,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white),
                             ),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50)),
                           ),
                         )
                       ],

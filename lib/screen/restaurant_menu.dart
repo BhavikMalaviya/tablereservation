@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mediminder/model/restuarant.dart';
 import 'package:mediminder/screen/booktable_screen.dart';
 
 class RestaurantMenu extends StatelessWidget {
+  final Restuarant restuarant;
+  RestaurantMenu({this.restuarant});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -38,7 +41,7 @@ class RestaurantMenu extends StatelessWidget {
                         children: [
                           Icon(Icons.phone),
                           Text(
-                            " 9586052181",
+                            " ${restuarant.phone}",
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -52,7 +55,7 @@ class RestaurantMenu extends StatelessWidget {
                         children: [
                           Icon(Icons.mail),
                           Text(
-                            " xys@gmail.com",
+                            " ${restuarant.email}",
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -70,25 +73,32 @@ class RestaurantMenu extends StatelessWidget {
             Container(
               height: size.height * 0.55,
               width: size.width * 0.9,
-              child: Image.asset("assets/menu.jpg", fit: BoxFit.cover),
+              child: Image.asset(restuarant.menuPic, fit: BoxFit.cover),
             ),
             Spacer(),
             SizedBox(
               width: size.width * 0.5,
               height: 50,
-              child: RaisedButton(
-                elevation: 10,
-                color: Colors.red,
-                onPressed: () => Navigator.push(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 10,
+                  primary: Colors.red,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                ),
+                onPressed: () {
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => BookATableScreen())),
+                      builder: (context) =>
+                          BookATableScreen(restuarant: restuarant),
+                    ),
+                  );
+                },
                 child: Text(
                   "Book a Table",
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50)),
               ),
             ),
             SizedBox(
@@ -100,5 +110,3 @@ class RestaurantMenu extends StatelessWidget {
     );
   }
 }
-
-class BookTableScreen {}

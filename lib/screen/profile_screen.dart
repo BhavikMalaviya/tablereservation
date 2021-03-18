@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mediminder/auth/authmethod.dart';
+import 'package:mediminder/screen/your_booking_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -20,18 +21,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(
               height: size.height * 0.05,
             ),
-            Text(authMethod.auth.currentUser.displayName ?? "Name",
-                style: TextStyle(
-                    fontSize: size.height * 0.035,
-                    fontWeight: FontWeight.w700)),
+            Text(
+              authMethod.auth.currentUser.displayName ?? "Name",
+              style: TextStyle(
+                  fontSize: size.height * 0.035, fontWeight: FontWeight.w700),
+            ),
             SizedBox(
               height: size.height * 0.01,
             ),
-            Text(authMethod.auth.currentUser.email ?? "",
-                style: TextStyle(
-                    fontSize: size.height * 0.03,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.grey)),
+            Text(
+              authMethod.auth.currentUser.email ?? "",
+              style: TextStyle(
+                  fontSize: size.height * 0.03,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.grey),
+            ),
             Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5),
@@ -60,37 +64,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5),
-              child: Text("Your Booking",
-                  style: TextStyle(fontSize: 20, color: Colors.grey)),
+              child: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => YourBookingScreen(),
+                  ),
+                ),
+                child: Text("Your Booking",
+                    style: TextStyle(fontSize: 20, color: Colors.grey)),
+              ),
             ),
             Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5),
-              child: Text("Favourite Resturants",
-                  style: TextStyle(fontSize: 20, color: Colors.grey)),
+              child: Text(
+                "Favourite Resturants",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
+              ),
             ),
             Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5),
-              child: Text("Online Booking Help",
-                  style: TextStyle(fontSize: 20, color: Colors.grey)),
+              child: Text(
+                "Online Booking Help",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
+              ),
             ),
-            Divider(),
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Text("About",
-                    style: TextStyle(fontSize: 20, color: Colors.grey))),
             Divider(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 5),
-              child: Text("Send Feedback",
-                  style: TextStyle(fontSize: 20, color: Colors.grey)),
+              child: Text(
+                "About",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
+              ),
             ),
             Divider(),
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 5),
-                child: Text("Report",
-                    style: TextStyle(fontSize: 20, color: Colors.grey))),
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Text(
+                "Send Feedback",
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              ),
+            ),
+            Divider(),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Text(
+                "Report",
+                style: TextStyle(fontSize: 20, color: Colors.grey),
+              ),
+            ),
             Divider(),
             Padding(
                 padding: EdgeInsets.symmetric(vertical: 5),
@@ -99,8 +132,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     authMethod.auth.signOut();
                     Navigator.pop(context);
                   },
-                  child: Text("Log out",
-                      style: TextStyle(fontSize: 20, color: Colors.grey)),
+                  child: Text(
+                    "Log out",
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
                 )),
             Divider(),
           ],

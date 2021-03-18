@@ -39,16 +39,18 @@ class _CartScreenState extends State<CartScreen> {
               SizedBox(
                 width: size.width * 0.7,
                 height: 50,
-                child: RaisedButton(
-                  elevation: 10,
-                  color: Colors.red,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    primary: Colors.red,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
                   onPressed: widget.selected,
                   child: Text(
                     "Brower Restaurants",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
                 ),
               ),
             ],

@@ -1,13 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mediminder/model/restuarant.dart';
 
-class BookATableScreen extends StatefulWidget {
-  @override
-  _BookATableScreenState createState() => _BookATableScreenState();
-}
+import 'booking_screen.dart';
 
-class _BookATableScreenState extends State<BookATableScreen> {
+class BookATableScreen extends StatelessWidget {
+  final Restuarant restuarant;
+  BookATableScreen({this.restuarant});
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,6 +17,12 @@ class _BookATableScreenState extends State<BookATableScreen> {
         appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
+            centerTitle: true,
+            title: Text("Tables",
+                style: TextStyle(
+                    fontSize: size.height * 0.03,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black)),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
@@ -37,11 +44,31 @@ class _BookATableScreenState extends State<BookATableScreen> {
                             return AlertDialog(
                               content: Text("Are you sure?"),
                               actions: [
-                                FlatButton(
-                                  child: new Text("Yes"),
-                                  onPressed: () => Navigator.pop(context, true),
-                                ),
-                                FlatButton(
+                                TextButton(
+                                    child: new Text("Yes"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Restuarant restuarantinfo = Restuarant(
+                                          address: restuarant.address,
+                                          dis: restuarant.dis,
+                                          email: restuarant.email,
+                                          menuPic: restuarant.menuPic,
+                                          name: restuarant.name,
+                                          phone: restuarant.phone,
+                                          pic: restuarant.pic,
+                                          time: restuarant.time,
+                                          items: restuarant.items,
+                                          tableSize: '2');
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => BookingScreen(
+                                            restuarant: restuarantinfo,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                TextButton(
                                   child: new Text("No"),
                                   onPressed: () => Navigator.pop(context, true),
                                 ),
@@ -67,11 +94,31 @@ class _BookATableScreenState extends State<BookATableScreen> {
                             return AlertDialog(
                               content: Text("Are you sure?"),
                               actions: [
-                                FlatButton(
-                                  child: new Text("Yes"),
-                                  onPressed: () => Navigator.pop(context, true),
-                                ),
-                                FlatButton(
+                                TextButton(
+                                    child: new Text("Yes"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Restuarant restuarantinfo = Restuarant(
+                                          address: restuarant.address,
+                                          dis: restuarant.dis,
+                                          email: restuarant.email,
+                                          menuPic: restuarant.menuPic,
+                                          name: restuarant.name,
+                                          phone: restuarant.phone,
+                                          pic: restuarant.pic,
+                                          time: restuarant.time,
+                                          items: restuarant.items,
+                                          tableSize: '3');
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => BookingScreen(
+                                            restuarant: restuarantinfo,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                TextButton(
                                   child: new Text("No"),
                                   onPressed: () => Navigator.pop(context, true),
                                 ),
@@ -97,11 +144,31 @@ class _BookATableScreenState extends State<BookATableScreen> {
                             return AlertDialog(
                               content: Text("Are you sure?"),
                               actions: [
-                                FlatButton(
-                                  child: new Text("Yes"),
-                                  onPressed: () => Navigator.pop(context, true),
-                                ),
-                                FlatButton(
+                                TextButton(
+                                    child: new Text("Yes"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      Restuarant restuarantinfo = Restuarant(
+                                          address: restuarant.address,
+                                          dis: restuarant.dis,
+                                          email: restuarant.email,
+                                          menuPic: restuarant.menuPic,
+                                          name: restuarant.name,
+                                          phone: restuarant.phone,
+                                          pic: restuarant.pic,
+                                          time: restuarant.time,
+                                          items: restuarant.items,
+                                          tableSize: '4');
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => BookingScreen(
+                                            restuarant: restuarantinfo,
+                                          ),
+                                        ),
+                                      );
+                                    }),
+                                TextButton(
                                   child: new Text("No"),
                                   onPressed: () => Navigator.pop(context, true),
                                 ),
